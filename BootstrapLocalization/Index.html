@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>rtl</title>
+    <meta charset="utf-8" />
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="container" ng-app="rtl">
+        <div ng-controller="main">
+            <div class="overflow text-center" ng-show="overflowShow === true">
+                ...
+            </div>
+            <div class="row">
+                <div class="col-lg-4" ng-class="pull">
+                    <div class="dropdown" ng-class="pull">
+                        <a id="dLabel" data-target="#" href="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="glyphicon glyphicon-globe" ng-class="pull"></span>
+                            <span ng-class="pull"> {{currentLanguage}} </span>
+                            <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu" aria-labelledby="dLabel">
+                            <li> <a href="#" ng-click="rltSwitch('rtl')" ng-class="textAlign">{{arabic}}</a></li>
+                            <li> <a href="#" ng-click="rltSwitch('ltr')" ng-class="textAlign">{{english}}</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row bottom-magrin">
+                <div class="col-md-2"></div>
+                <div class="col-md-8 text-center">
+
+                    <label class="text-info" ng-show="false">
+                        <span class="visible-lg">bootstrap lg</span>
+                        <span class="visible-md">bootstrap md</span>
+                        <span class="visible-sm">bootstrap sm</span>
+                        <span class="visible-xs">bootstrap xs</span>
+                    </label>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            &nbsp;
+                        </div>
+                        <div class="panel-body" dir="{{dir}}">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 col-xs-12" ng-class="pull">
+                                    <div class="form-group">
+                                        <label>{{firstName}}</label>
+                                        <input type="text" class="form-control" placeholder="{{firstName}}" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-12" ng-class="pull">
+                                    <div class="form-group">
+                                        <label>{{fatherName}}</label>
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-12" ng-class="pull">
+                                    <div class="form-group">
+                                        <label>{{lastName}}</label>
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 col-xs-12" ng-class="pull">
+                                    <div class="form-group">
+                                        <label>{{userName}}</label>
+                                        <input type="text" ng-model="user" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-12" ng-class="pull">
+                                    <div class="form-group">
+                                        <label>&nbsp; </label>
+                                        <span class="text-success display-block" ng-show="user.length > 3">{{userNameNote}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 col-xs-12" ng-class="pull">
+                                    <div class="form-group">
+                                        <label>{{email}}</label>
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-sm-8 col-xs-12" ng-class="pull">
+                                    <div class="form-group">
+                                        <label>&nbsp; </label>
+                                        <span class="text-info display-block">{{emailNote}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8 col-sm-4 col-xs-12" ng-class="pull">
+                                    <div class="form-group">
+                                        <label>{{country}}</label>
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-4 col-xs-12" ng-class="pull">
+                                    <div class="form-group">
+                                        <label>{{city}}</label>
+                                        <input type="text" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            &nbsp;
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-2.1.4.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/angular.js"></script>
+    <script>
+       
+        var rtl = angular.module('rtl', []);
+
+        rtl.controller('main', ['$scope', '$http', '$log', '$timeout', function ($scope, $http, $log, $timeout) {
+
+            $scope.user = '';
+            $scope.overflowShow = false;
+            //something like asp.net resourse files;
+            $scope.rltSwitch = function (lang) {
+                if (lang === 'ltr') {
+
+                    $scope.pull = 'pull-left';
+                    $scope.dir = 'ltr';
+                    $scope.textAlign = 'text-left';
+
+                    $scope.currentLanguage = 'English';
+                    $scope.arabic = 'Arabic';
+                    $scope.english = 'English';
+                    $scope.firstName = 'First Name'
+                    $scope.fatherName = 'Father Name';
+                    $scope.lastName = 'Last name';
+                    $scope.userName = 'User Name';
+                    $scope.userNameNote = 'Current username is available.'
+                    $scope.postion = 'Postion';
+                    $scope.job = 'Job';
+                    $scope.email = 'Email';
+                    $scope.emailNote = "Only google,microsoft accounts."
+                    $scope.country = 'Country';
+                    $scope.city = 'City';
+                    $scope.bootstrap = "bootstrap";
+                }
+                else {
+                    $scope.pull = 'pull-right';
+                    $scope.dir = 'rtl';
+                    $scope.textAlign = 'text-right';
+
+                    $scope.currentLanguage = 'العربية';
+                    $scope.arabic = 'العربية';
+                    $scope.english = 'الانكليزية';
+                    $scope.firstName = 'الاسم';
+                    $scope.fatherName = 'اسم الأب';
+                    $scope.lastName = 'الكنية';
+                    $scope.userName = 'اسم المستخدم';
+                    $scope.userNameNote = 'اسم المستخدم متاح.'
+                    $scope.postion = 'المنصب';
+                    $scope.job = 'الوظيفة';
+                    $scope.email = 'البريد الالكتروني';
+                    $scope.emailNote = "فقط حسابات غوغل , مايكروسوفت."
+                    $scope.country = 'البلد';
+                    $scope.city = 'المدينة';
+                    $scope.bootstrap = 'بوستراب';
+                }
+            }
+
+            $scope.rltSwitch('ltr');
+
+            $timeout(function () {
+                $scope.overflowShow = false;
+            }, 3000);
+        }])
+    </script>
+</body>
+
+</html>
