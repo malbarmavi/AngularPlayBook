@@ -1,23 +1,21 @@
-﻿
-body
-{
-    margin-top:50px;
+﻿body {
+    margin-top: 50px;
 }
 
-.bottom-magrin { 
-    margin-bottom:20px;
+.bottom-magrin {
+    margin-bottom: 20px;
 }
 
 .display-block {
-    display:block;
+    display: block;
 }
 
-body button{
-    outline:none !important;
-   min-width:100px;
+body button {
+    outline: none !important;
+    min-width: 100px;
 }
 
-.overflow { 
+.overflow {
     position: fixed;
     top: 0;
     left: 0;
@@ -31,8 +29,7 @@ body button{
     line-height: 20;
 }
 
-
-
-span.pull-right , span.pull-left { 
-    margin:0 4px;
+span.pull-right,
+span.pull-left {
+    margin: 0 4px;
 }
