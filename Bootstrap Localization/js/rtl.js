@@ -1,57 +1,58 @@
 var rtl = angular.module('rtl', []);
+rtl.service('$lang', function() {
+    this.rltSwitch = function (lang) {
+         if (lang === 'ltr') {
 
-rtl.controller('main', ['$scope', '$http', '$log', '$timeout', function ($scope, $http, $log, $timeout) {
-
-    $scope.user = '';
-    $scope.overflowShow = false;
-    // something like asp.net resourse files;
-    $scope.rltSwitch = function (lang) {
-        if (lang === 'ltr') {
-
-            $scope.pull = 'pull-left';
-            $scope.dir = 'ltr';
-            $scope.textAlign = 'text-left';
-            $scope.currentLanguage = 'English';
-            $scope.arabic = 'Arabic';
-            $scope.english = 'English';
-            $scope.firstName = 'First Name'
-            $scope.fatherName = 'Father Name';
-            $scope.lastName = 'Last name';
-            $scope.userName = 'User Name';
-            $scope.userNameNote = 'Current username is available.'
-            $scope.postion = 'Postion';
-            $scope.job = 'Job';
-            $scope.email = 'Email';
-            $scope.emailNote = "Only google,microsoft accounts."
-            $scope.country = 'Country';
-            $scope.city = 'City';
-            $scope.bootstrap = "bootstrap";
+            this.pull = 'pull-left';
+            this.dir = 'ltr';
+            this.textAlign = 'text-left';
+            this.currentLanguage = 'English';
+            this.arabic = 'Arabic';
+            this.english = 'English';
+            this.firstName = 'First Name'
+            this.fatherName = 'Father Name';
+            this.lastName = 'Last name';
+            this.userName = 'User Name';
+            this.userNameNote = 'Current username is available.'
+            this.postion = 'Postion';
+            this.job = 'Job';
+            this.email = 'Email';
+            this.emailNote = "Only google,microsoft accounts."
+            this.country = 'Country';
+            this.city = 'City';
+            this.bootstrap = "bootstrap";
         }
         else {
 
-            $scope.pull = 'pull-right';
-            $scope.dir = 'rtl';
-            $scope.textAlign = 'text-right';
-            $scope.currentLanguage = 'العربية';
-            $scope.arabic = 'العربية';
-            $scope.english = 'الانكليزية';
-            $scope.firstName = 'الاسم';
-            $scope.fatherName = 'اسم الأب';
-            $scope.lastName = 'الكنية';
-            $scope.userName = 'اسم المستخدم';
-            $scope.userNameNote = 'اسم المستخدم متاح.'
-            $scope.postion = 'المنصب';
-            $scope.job = 'الوظيفة';
-            $scope.email = 'البريد الالكتروني';
-            $scope.emailNote = "فقط حسابات غوغل , مايكروسوفت."
-            $scope.country = 'البلد';
-            $scope.city = 'المدينة';
-            $scope.bootstrap = 'بوستراب';
+            this.pull = 'pull-right';
+            this.dir = 'rtl';
+            this.textAlign = 'text-right';
+            this.currentLanguage = 'العربية';
+            this.arabic = 'العربية';
+            this.english = 'الانكليزية';
+            this.firstName = 'الاسم';
+            this.fatherName = 'اسم الأب';
+            this.lastName = 'الكنية';
+            this.userName = 'اسم المستخدم';
+            this.userNameNote = 'اسم المستخدم متاح.'
+            this.postion = 'المنصب';
+            this.job = 'الوظيفة';
+            this.email = 'البريد الالكتروني';
+            this.emailNote = "فقط حسابات غوغل , مايكروسوفت."
+            this.country = 'البلد';
+            this.city = 'المدينة';
+            this.bootstrap = 'بوستراب';
         }
     }
+    
+});
+rtl.controller('main', ['$scope', '$http', '$log', '$timeout','$lang', function ($scope, $http, $log, $timeout,$lang) {
 
+    $scope.user = '';
+    $scope.overflowShow = false;
+    $scope.rltSwitch = $lang.rltSwitch
     $scope.rltSwitch('ltr');
-
+    
     $timeout(function () {
         $scope.overflowShow = false;
     }, 3000);
