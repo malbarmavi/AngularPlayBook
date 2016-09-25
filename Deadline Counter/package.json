@@ -1,0 +1,15 @@
+{
+  "name": "deadline-counter",
+  "version": "1.0.0",
+  "description": "angularjs app",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  }
+}

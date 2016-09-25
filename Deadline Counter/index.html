@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <link href="css/app.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body ng-app="app">
+
+    <div class="continer centerIt" ng-controller="counter">
+
+        <div>
+            <label class="project-title">Project Name</label>
+            <label class="project-name">{{projectName}}</label></div>
+        <div class="counter">
+            <div class="days">
+                <div class="value">{{days}}</div>
+                <span>Days</span>
+            </div>
+
+            <div class="hours">
+                <div class="value">{{hours}}</div>
+                <span>Hours</span>
+            </div>
+
+            <div class="minutes">
+                <div class="value">{{minutes}}</div>
+                <span>Minutes</span>
+            </div>
+
+            <div class="seconds">
+                <div class="value">{{seconds}}</div>
+                <span>Seconds</span>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/angular.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
